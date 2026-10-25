@@ -6,11 +6,11 @@
 <meta name="theme-color" content="#06130f">
 <title>دعوة زفاف – آل العدوي وآل زايد</title>
 
-<!-- وسوم المعاينة لوسائل التواصل الاجتماعي (Open Graph) مع الصورة المطلوبة -->
+<!-- وسوم المعاينة لوسائل التواصل الاجتماعي (Open Graph) -->
 <meta property="og:title" content="دعوة زفاف – آل العدوي وآل زايد">
 <meta property="og:description" content="تشرفنا دعوتكم لحضور حفل زفافنا المبارك، دامت الأفراح في دياركم العامرة">
 <meta property="og:image" content="https://i.ibb.co/689Vj0F/image-ee15b6.jpg">
-<meta property="og:url" content="رابط_موقع_الدعوة_الخاص_بك">
+<meta property="og:url" content="https://adawi-zayed-wedding.vercel.app/">
 <meta property="og:type" content="website">
 
 <link href="https://fonts.googleapis.com/css2?family=Katibeh&family=Aref+Ruqaa:wght@400;700&family=Amiri:wght@400;700&family=Reem+Kufi:wght@500&family=Cormorant+Garamond:wght@300;500&display=swap" rel="stylesheet">
@@ -131,7 +131,7 @@ $('wa').href='https://wa.me/'+WA+'?text='+encodeURIComponent('السلام عل�
 /* music: soft generated arpeggio */
 var AC,M,tm,mt=0,CH=[[146.83,220,293.66,349.23],[116.54,174.61,233.08,293.66],[174.61,220,261.63,349.23],[130.81,196,261.63,329.63]];
 function initA(){var C=window.AudioContext||window.webkitAudioContext;if(!C)return;AC=new C();M=AC.createGain();M.gain.value=.15;var dl=AC.createDelay(1),fb=AC.createGain();dl.delayTime.value=.45;fb.gain.value=.38;M.connect(AC.destination);M.connect(dl);dl.connect(fb);fb.connect(dl);dl.connect(AC.destination);if(AC.state=='suspended')AC.resume()}
-function note(f,v){var o=AC.createOscillator(),g=AC.createGain(),t=AC.currentTime;o.frequency.value=f;g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(v,t+.02);g.gain.exponentialRampToValueAtTime(.0001,t+2.7);o.connect(g);g.connect(M);o.start(t);o.stop(t+2.7)}
+function note(f,v){var o=AC.currentSourceNode||AC.createOscillator(),g=AC.createGain(),t=AC.currentTime;o.frequency.value=f;g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(v,t+.02);g.gain.exponentialRampToValueAtTime(.0001,t+2.7);o.connect(g);g.connect(M);o.start(t);o.stop(t+2.7)}
 function play(){var i=0;tm=setInterval(function(){var c=CH[(i>>3)%4],k=i&7;note(c[[0,1,2,3,2,1,2,3][k]],.45);if(!k)note(c[0]/2,.4);i++},380)}
 $('mu').onclick=function(){if(!AC)return;mt=!mt;M.gain.setTargetAtTime(mt?0:.15,AC.currentTime,.08);this.textContent=mt?'🔇':'🔊'};
 document.addEventListener('visibilitychange',function(){if(AC)document.hidden?AC.suspend():(!mt&&AC.resume())});
